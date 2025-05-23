@@ -5,6 +5,10 @@ import pandas as pd
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
+# /workspaces/streamlit/streamlit_app.py
+# /workspaces/streamlit/.streamlit
+# /workspaces/streamlit/.streamlit/secrets.toml
+
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 
@@ -14,7 +18,7 @@ df = conn.read()
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"Alumni: {row.nama} - Email: {row.emel_alumni} - Grade: {row.tahun_graduasi} ")
+    st.write(f"Alu: {row.nama} - Email: {row.emel_alumni} - Grade: {row.tahun_graduasi} ")
 
 # x = st.slider('x')  # 👈 this is a widget
 # st.write(x, 'squared is', x * x)
