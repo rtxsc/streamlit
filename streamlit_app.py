@@ -11,14 +11,20 @@ from streamlit_gsheets import GSheetsConnection
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
-
+count = 0
 df = conn.read()
 # print(df.columns)
 
+st.write(f"FKE Samarahan Alumni Survey Responses (the not-so-real-time update)")
+st.write(f"Powered by Streamlit + GitHub Workspace")
 
+
+st.write(f"---------------------------------------")
 # Print results.
 for row in df.itertuples():
-    st.write(f"Alu: {row.nama} - Email: {row.emel_alumni} - Grade: {row.tahun_graduasi} ")
+    count = count + 1
+    # st.write(f"Count:",{count})
+    st.write(f"{count} : {row.nama} | Intake: {row.batch} / Grade: {row.tahun_graduasi} ")
 
 # x = st.slider('x')  # 👈 this is a widget
 # st.write(x, 'squared is', x * x)
