@@ -1,4 +1,4 @@
 # requirements.txt
-streamlit==1.22
+streamlit==1.45.1
 git+https://github.com/streamlit/gsheets-connection
 pandasql  # this is for example/st_app.py only
