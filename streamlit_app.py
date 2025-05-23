@@ -14,7 +14,7 @@ df = conn.read()
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.nama} - Email: {row.emel_alumni} - Grade: {row.tahun_graduasi} ")
+    st.write(f"Alumni: {row.nama} - Email: {row.emel_alumni} - Grade: {row.tahun_graduasi} ")
 
 # x = st.slider('x')  # 👈 this is a widget
 # st.write(x, 'squared is', x * x)
