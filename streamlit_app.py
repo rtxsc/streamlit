@@ -21,22 +21,29 @@ x = datetime.datetime.now()
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 count = 0
+prev_count = 0
 df = conn.read()
 # print(df.columns)
-st.write(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
-st.write(f"FKE Samarahan Alumni Survey Responses (the not-so-real-time update)")
-st.write(f"Alumni from 2009 to 2019 (MQA)")
-st.write(f"Alumni from 2020 to Current (ETAC)")
-st.write(f"Powered by Streamlit + GitHub Workspace")
-st.write(f"---------------------")
+st.caption(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
+st.subheader(f"GAPC2021 FKE Samarahan Alumni Survey Responses")
+st.caption(f"<the not-so-real-time update>")
+st.badge("Alumni from 2009 to 2019 (MQA) <|> 2020 to Current (ETAC)", icon=":material/check:", color="green")
+st.markdown(
+    ":violet-badge[:material/star: Favorite] :orange-badge[⚠️ Needs review] :gray-badge[Deprecated]"
+)
+st.divider()
 # Print results.
 for row in df.itertuples():
     count = count + 1
     # st.write(f"Count:",{count})
     st.write(f"{count} : {row.nama} | {row.batch} / Grade: {row.tahun_graduasi} ")
 
+st.badge("New")
+st.write(f"{count} : {row.nama} | {row.batch} / Grade: {row.tahun_graduasi} ")
 last_ts = row.Timestamp
-st.write(f"Latest update: {last_ts}")
+st.caption(f"Latest update: {last_ts}")
+
+st.code(f"Powered by Streamlit + GitHub Workspace")
 
 
 # x = st.slider('x')  # 👈 this is a widget
