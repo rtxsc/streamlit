@@ -1,5 +1,5 @@
 # requirements.txt
 streamlit==1.45.1
 git+https://github.com/streamlit/gsheets-connection
-git+https://github.com/kmcgrady/streamlit-autorefresh
+# git+https://github.com/kmcgrady/streamlit-autorefresh
 pandasql  # this is for example/st_app.py only
