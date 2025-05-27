@@ -14,7 +14,7 @@ import datetime
 
 # Run the autorefresh about every 60000 milliseconds (1 minute) and stop
 # after it's been refreshed 1440 minutes (1 day)
-refresh_count = 69
+refresh_count = 111
 # refresh_count = st_autorefresh(interval=10000, limit=1440, key="app_refresh")
 x = datetime.datetime.now()
 
@@ -38,7 +38,7 @@ df = conn.read()
 for row in df.itertuples():
     count = count + 1
     st.write(f"[{count}]     {row.nama}")
-    st.caption(f"{row.batch} | Grade: {row.tahun_graduasi}")
+    st.caption(f"{row.batch} | Graduated {row.tahun_graduasi}")
 st.badge("New")
 st.badge(f"{count} : {row.nama} = {row.batch} | Grade: {row.tahun_graduasi}", color="blue")
 last_ts = row.Timestamp
