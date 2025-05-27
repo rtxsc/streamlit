@@ -4,17 +4,26 @@ import pandas as pd
 
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
+from streamlit_autorefresh import st_autorefresh
+import datetime
+
 
 # /workspaces/streamlit/streamlit_app.py
 # /workspaces/streamlit/.streamlit
 # /workspaces/streamlit/.streamlit/secrets.toml
+
+# Run the autorefresh about every 60000 milliseconds (1 minute) and stop
+# after it's been refreshed 1440 minutes (1 day)
+refresh_count = st_autorefresh(interval=60000, limit=1440, key="app_refresh")
+x = datetime.datetime.now()
+# print(x)
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
 count = 0
 df = conn.read()
 # print(df.columns)
-
+st.write(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
 st.write(f"FKE Samarahan Alumni Survey Responses (the not-so-real-time update)")
 st.write(f"Alumni from 2009 to 2019 (MQA)")
 st.write(f"Alumni from 2020 to Current (ETAC)")
