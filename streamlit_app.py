@@ -16,13 +16,10 @@ import datetime
 # after it's been refreshed 1440 minutes (1 day)
 refresh_count = st_autorefresh(interval=10000, limit=1440, key="app_refresh")
 x = datetime.datetime.now()
-# print(x)
 
-# Create a connection object.
-conn = st.connection("gsheets", type=GSheetsConnection)
 count = 0
 prev_count = 0
-df = conn.read()
+
 # print(df.columns)
 st.caption(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
 st.subheader(f"GAPC2021 FKE Samarahan Alumni Survey Responses")
@@ -32,14 +29,17 @@ st.markdown(
     ":violet-badge[:material/star: Favorite] :orange-badge[⚠️ Needs review] :gray-badge[Deprecated]"
 )
 st.divider()
+
+# Create a connection object.
+conn = st.connection("gsheets", type=GSheetsConnection)
+df = conn.read()
 # Print results.
 for row in df.itertuples():
     count = count + 1
-    # st.write(f"Count:",{count})
-    st.write(f"{count} : {row.nama} | {row.batch} / Grade: {row.tahun_graduasi} ")
-
+    st.write(f"[{count}]     {row.nama}")
+    st.caption(f"{row.batch} | Grade: {row.tahun_graduasi}")
 st.badge("New")
-st.write(f"{count} : {row.nama} | {row.batch} / Grade: {row.tahun_graduasi} ")
+st.badge(f"{count} : {row.nama} = {row.batch} | Grade: {row.tahun_graduasi}", color="blue")
 last_ts = row.Timestamp
 st.caption(f"Latest update: {last_ts}")
 
