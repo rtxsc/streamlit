@@ -14,7 +14,7 @@ import datetime
 
 # Run the autorefresh about every 60000 milliseconds (1 minute) and stop
 # after it's been refreshed 1440 minutes (1 day)
-refresh_count = st_autorefresh(interval=60000, limit=1440, key="app_refresh")
+refresh_count = st_autorefresh(interval=10000, limit=1440, key="app_refresh")
 x = datetime.datetime.now()
 # print(x)
 
