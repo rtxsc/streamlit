@@ -16,15 +16,19 @@ df = conn.read()
 # print(df.columns)
 
 st.write(f"FKE Samarahan Alumni Survey Responses (the not-so-real-time update)")
+st.write(f"Alumni from 2009 to 2019 (MQA)")
+st.write(f"Alumni from 2020 to Current (ETAC)")
 st.write(f"Powered by Streamlit + GitHub Workspace")
-
-
-st.write(f"---------------------------------------")
+st.write(f"---------------------")
 # Print results.
 for row in df.itertuples():
     count = count + 1
     # st.write(f"Count:",{count})
-    st.write(f"{count} : {row.nama} | Intake: {row.batch} / Grade: {row.tahun_graduasi} ")
+    st.write(f"{count} : {row.nama} | {row.batch} / Grade: {row.tahun_graduasi} ")
+
+last_ts = row.Timestamp
+st.write(f"Latest update: {last_ts}")
+
 
 # x = st.slider('x')  # 👈 this is a widget
 # st.write(x, 'squared is', x * x)
