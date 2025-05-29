@@ -38,9 +38,9 @@ df = conn.read()
 for row in df.itertuples():
     count = count + 1
     st.write(f"[{count}] &nbsp;&nbsp; {row.Name}")
-    st.caption(f"{row.Batch} | Graduated {row.Graduation_Year}")
+    st.caption(f"{row.Batch} | Graduated {row.GraduationYear}")
 st.badge("New")
-st.badge(f"[{count}] &nbsp; {row.Name} &nbsp;&nbsp; {row.Batch} | Graduated {row.Graduation_Year}", color="blue")
+st.badge(f"[{count}] &nbsp; {row.Name} &nbsp;&nbsp; {row.Batch} | Graduated {row.GraduationYear}", color="blue")
 last_ts = row.Timestamp
 st.caption(f"Latest update: {last_ts}")
 
