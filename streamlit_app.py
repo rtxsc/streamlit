@@ -37,15 +37,15 @@ df = conn.read()
 # Print results.
 for row in df.itertuples():
     count = count + 1
-    st.write(f"[{count}] &nbsp;&nbsp; {row.nama}")
-    st.caption(f"{row.batch} | Graduated {row.tahun_graduasi}")
+    st.write(f"[{count}] &nbsp;&nbsp; {row.Name}")
+    st.caption(f"{row.Batch} | Graduated {row.Graduation_Year}")
 st.badge("New")
-st.badge(f"[{count}] &nbsp; {row.nama} &nbsp;&nbsp; {row.batch} | Graduated {row.tahun_graduasi}", color="blue")
+st.badge(f"[{count}] &nbsp; {row.Name} &nbsp;&nbsp; {row.Batch} | Graduated {row.Graduation_Year}", color="blue")
 last_ts = row.Timestamp
 st.caption(f"Latest update: {last_ts}")
 
-st.code(f"Powered by Streamlit + GitHub Workspace")
-
+st.code(f"Powered by Streamlit + GitHub Codespaces")
+st.code(f"2025 Faculty of Electrical Engineering UiTM Sarawak")
 
 # x = st.slider('x')  # 👈 this is a widget
 # st.write(x, 'squared is', x * x)
