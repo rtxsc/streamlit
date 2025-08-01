@@ -14,16 +14,16 @@ import datetime
 
 # Run the autorefresh about every 60000 milliseconds (1 minute) and stop
 # after it's been refreshed 1440 minutes (1 day)
-refresh_count = 111
-refresh_count = st_autorefresh(interval=10000, limit=1440, key="app_refresh")
-x = datetime.datetime.now()
+# refresh_count = 111
+# refresh_count = st_autorefresh(interval=10000, limit=1440, key="app_refresh")
+# x = datetime.datetime.now()
 
 count = 0
 prev_count = 0
 # print(df.columns)
-st.caption(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
+# st.caption(f"App Refresh Count: {refresh_count} / 1440 as of {x}")
 st.subheader(f"GAPC2021 FKE Samarahan Alumni Survey Responses")
-st.caption(f"<the not-so-real-time update>")
+st.caption(f"<the not-so-real-time update> | 1 Aug 2025")
 st.badge("Alumni from 2009 to 2019 (MQA) <|> 2020 to Current (ETAC)", icon=":material/check:", color="green")
 st.markdown(
     ":violet-badge[:material/star: Favorite] :orange-badge[⚠️ Needs review] :gray-badge[Deprecated]"
